@@ -1,4 +1,16 @@
-const Logo = ({ width = 215, height = 24, className = "" }: { width?: number; height?: number; className?: string }) => (
+import { CSSProperties } from "react";
+
+const Logo = ({
+    width = 215,
+    height = 24,
+    className = "",
+    style,
+}: {
+    width?: number;
+    height?: number;
+    className?: string;
+    style?: CSSProperties;
+}) => (
     <svg
         fill="none"
         height={height}
@@ -6,7 +18,7 @@ const Logo = ({ width = 215, height = 24, className = "" }: { width?: number; he
         width={width}
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
-        style={{ color: "var(--logo-ink)" }}
+        style={{ color: "var(--logo-ink)", ...style }}
         className={className}
     >
         <clipPath id="a">

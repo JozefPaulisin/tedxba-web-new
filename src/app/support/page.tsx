@@ -1,11 +1,13 @@
 import Newsletter from "@/sections/newsletter";
 import Button from "@/components/Button";
+import HeroHeaderActivator from "@/components/HeroHeaderActivator";
 
 const Support = () => {
     return (
         <>
-            <section className="w-full h-[90vh] bg-[url('/images/support/hero.png')] bg-cover bg-center">
-                <div className="xl:w-[1180px] lg:w-[940px] lg:mx-auto w-auto h-screen mx-5 flex flex-col gap-6 mt-20 justify-center">
+            <section className="relative w-full h-[100vh] bg-[url('/images/support/hero.png')] bg-cover bg-center">
+                <HeroHeaderActivator theme="dark" />
+                <div className="xl:w-[1180px] lg:w-[940px] lg:mx-auto w-auto h-full mx-5 flex flex-col gap-6 justify-center">
                     <div className="max-w-[540px] flex flex-col gap-6">
                         <h2 className="font-medium text-txt-white-prim md:text-[40px] text-[32px] leading-tight">
                             Pomôž nám priniesť myšlienky, ktoré menia veci

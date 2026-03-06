@@ -52,6 +52,11 @@
   --logo-ink: #FFFFFF;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background: var(--bg);
   transition: background 0.3s, color 0.3s;
