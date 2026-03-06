@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 type ArticleCardProps = {
     title: string;
@@ -20,7 +20,7 @@ const ArticleCard = (
     } : ArticleCardProps
 ) => {
     return (
-        <Link href={`/article/${slug}`} passHref>
+        <Link href={`/blog/${slug}`} passHref>
             <img
                 src={imageUrl || "/images/blog/default.png"}
                 alt={title}

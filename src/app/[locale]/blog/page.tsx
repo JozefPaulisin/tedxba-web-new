@@ -1,50 +1,31 @@
 import CtaSection from "@/sections/CtaSection";
-import ArticleCard from "@/components/ui/ArticleCard";
 import { getTranslations } from "next-intl/server";
 import { getPayload } from "payload";
 import config from "@payload-config";
+import InfiniteScrollArticles from "@/components/ui/InfiniteScrollArticles";
+import { docToItem } from "@/lib/articleUtils";
 
-const articles = [
-    {
-        title: "TEDxBratislava 2023: 10 myšlienok, ktoré nás zaujali",
-        date: "15. 9. 2023",
-        author: "Jana Nováková",
-        description: "TEDxBratislava 2023 prinieslo množstvo inšpiratívnych myšlienok. Tu je 10 z nich, ktoré nás zaujali a ktoré by ste si nemali nechať ujsť.",
-        imageUrl: "/images/blog/article1.png",
-        slug: "tedxbratislava-2023-10-myslienok"
-    },
-    {
-        title: "TEDxBratislava 2023: 10 myšlienok, ktoré nás zaujali",
-        date: "15. 9. 2023",
-        author: "Jana Nováková",
-        description: "TEDxBratislava 2023 prinieslo množstvo inšpiratívnych myšlienok. Tu je 10 z nich, ktoré nás zaujali a ktoré by ste si nemali nechať ujsť.",
-        imageUrl: "/images/blog/article1.png",
-        slug: "tedxbratislava-2023-10-myslienok"
-    },
-    {
-        title: "TEDxBratislava 2023: 10 myšlienok, ktoré nás zaujali",
-        date: "15. 9. 2023",
-        author: "Jana Nováková",
-        description: "TEDxBratislava 2023 prinieslo množstvo inšpiratívnych myšlienok. Tu je 10 z nich, ktoré nás zaujali a ktoré by ste si nemali nechať ujsť.",
-        imageUrl: "/images/blog/article1.png",
-        slug: "tedxbratislava-2023-10-myslienok"
-    },
-    {
-        title: "TEDxBratislava 2023: 10 myšlienok, ktoré nás zaujali",
-        date: "15. 9. 2023",
-        author: "Jana Nováková",
-        description: "TEDxBratislava 2023 prinieslo množstvo inšpiratívnych myšlienok. Tu je 10 z nich, ktoré nás zaujali a ktoré by ste si nemali nechať ujsť.",
-        imageUrl: "/images/blog/article1.png",
-        slug: "tedxbratislava-2023-10-myslienok"
-    },
-];
+const LIMIT = 9;
 
 const Blog = async () => {
     const t = await getTranslations('BlogPage');
 
     const payload = await getPayload({ config });
-    const settings = await payload.findGlobal({ slug: 'blog-settings' });
+
+    const [settings, articlesResult] = await Promise.all([
+        payload.findGlobal({ slug: 'blog-settings' }),
+        payload.find({
+            collection: 'articles',
+            limit: LIMIT,
+            page: 1,
+            sort: '-date',
+            depth: 1,
+        }),
+    ]);
+
     const podcastIframe = settings.podcastIframe as string | null | undefined;
+    const initialArticles = articlesResult.docs.map(docToItem);
+    const initialHasNextPage = articlesResult.hasNextPage;
 
     return (
         <>
@@ -66,19 +47,10 @@ const Blog = async () => {
                 <h2 className="font-medium text-txt-black-prim dark:text-txt-white-prim md:text-[40px] text-[32px] leading-tight">
                     {t('articles.title')}
                 </h2>
-                <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5">
-                    {articles.map((article, index) => (
-                        <ArticleCard
-                            key={index}
-                            title={article.title}
-                            date={article.date}
-                            author={article.author}
-                            description={article.description}
-                            imageUrl={article.imageUrl}
-                            slug={article.slug}
-                        />
-                    ))}
-                </div>
+                <InfiniteScrollArticles
+                    initialArticles={initialArticles}
+                    initialHasNextPage={initialHasNextPage}
+                />
             </section>
             <CtaSection />
         </>
