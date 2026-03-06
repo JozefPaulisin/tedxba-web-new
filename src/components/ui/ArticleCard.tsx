@@ -38,7 +38,7 @@ const ArticleCard = (
                         {author}
                     </span>
                 </div>
-                <p className="text-base text-txt-black-sec dark:text-txt-white-sec h-[58px] overflow-hidden">
+                <p className="text-base text-txt-black-sec dark:text-txt-white-sec line-clamp-3 overflow-hidden">
                     {description}
                 </p>
             </div>

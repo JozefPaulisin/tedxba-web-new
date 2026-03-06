@@ -71,20 +71,15 @@ export default async function ArticlePage({ params }: Props) {
                         <span>{dateFormatted}</span>
                         <span>{article.author as string}</span>
                     </div>
-                    <p className="font-light md:text-xl text-lg text-txt-black-sec dark:text-txt-white-sec">
-                        {article.description as string}
-                    </p>
                 </header>
 
                 {/* Cover image */}
                 {imageUrl && (
                     <div className="relative w-full h-[420px] mt-8 overflow-hidden">
-                        <Image
+                        <img
                             src={imageUrl}
                             alt={imageAlt}
-                            fill
-                            className="object-cover"
-                            priority
+                            className="object-cover h-full max-w-[780px]"
                         />
                     </div>
                 )}
