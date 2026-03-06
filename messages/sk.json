@@ -1,7 +1,11 @@
 {
   "Metadata": {
-    "title": "TEDxBratislava",
-    "description": "TEDxBratislava – nezávislá konferencia inšpirovaná TED, ktorá prináša myšlienky hodné šírenia."
+    "title": {
+      "default": "TEDxBratislava",
+      "template": "%s | TEDxBratislava"
+    },
+    "description": "TEDxBratislava – nezávislá konferencia inšpirovaná TED, ktorá prináša myšlienky hodné šírenia.",
+    "keywords": ["TEDxBratislava", "TED", "TEDx", "Bratislava", "konferencia", "myšlienky hodné šírenia", "Slovensko"]
   },
   "Header": {
     "catalog": "Katalóg",
@@ -64,11 +68,11 @@
   },
   "NotFoundPage": {
     "metadata": {
-      "title": "Stránka nenájdená",
-      "description": "Požadovaná stránka nebola nájdená."
+      "title": "404 - Stránka sa nenašla",
+      "description": "Možno bola odstránená alebo sa len zastarala..."
     },
-    "title": "Stránka nenájdená",
-    "subtitle": "Prepáčte, stránka, ktorú hľadáte, neexistuje.",
-    "btn": "Späť na úvodnú stránku"
+    "title": "Stránka sa nenašla",
+    "subtitle": "Možno bola odstránená alebo sa len zastarala...",
+    "btn": "Na hlavnú"
   }
 }

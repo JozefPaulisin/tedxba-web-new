@@ -1,7 +1,11 @@
 {
   "Metadata": {
-    "title": "TEDxBratislava",
-    "description": "TEDxBratislava – an independently organised TED event bringing ideas worth spreading."
+    "title": {
+      "default": "TEDxBratislava",
+      "template": "%s | TEDxBratislava"
+    },
+    "description": "TEDxBratislava – an independently organised TED event bringing ideas worth spreading.",
+    "keywords": ["TEDxBratislava", "TED", "TEDx", "Bratislava", "conference", "ideas worth spreading", "Slovakia"]
   },
   "Header": {
     "catalog": "Catalog",
