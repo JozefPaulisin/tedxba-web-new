@@ -42,6 +42,18 @@ export const Events: CollectionConfig = {
             label: 'Current / active event (shown as main link in header)',
             defaultValue: false,
         },
+        {
+            name: 'ctaSection',
+            type: 'select',
+            label: 'CTA Section (shown at the bottom of this event page)',
+            defaultValue: 'newsletter',
+            required: true,
+            options: [
+                { label: 'Newsletter', value: 'newsletter' },
+                { label: 'Buy Tickets', value: 'buyTickets' },
+                { label: 'None', value: 'none' },
+            ],
+        },
 
         // ─── Hero Section ─────────────────────────────────────────────────
         {

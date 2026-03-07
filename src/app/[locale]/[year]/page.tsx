@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import { getPayload } from "payload";
 import config from "@payload-config";
 import { getLocale } from "next-intl/server";
+import Newsletter from "@/sections/newsletter";
+import BuyTicketsCta from "@/sections/buyTicketsCta";
 
 import HeroSection from "@/sections/event/HeroSection";
 import TicketsSection from "@/sections/event/TicketsSection";
@@ -78,6 +80,8 @@ export default async function EventYearPage({ params }: Props) {
         <>
             {e.hero && <HeroSection hero={e.hero as never} locale={locale} />}
             {getSortedSections(e).map((key) => renderSection(key, e, locale))}
+            {e.ctaSection === 'newsletter' && <Newsletter />}
+            {e.ctaSection === 'buyTickets' && <BuyTicketsCta />}
         </>
     );
 }
