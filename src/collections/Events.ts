@@ -150,6 +150,13 @@ export const Events: CollectionConfig = {
             label: 'Tickets Section (Inviton iframe)',
             fields: [
                 {
+                    name: 'order',
+                    type: 'number',
+                    label: 'Order (position on page, 1 = first after hero)',
+                    defaultValue: 1,
+                    admin: { step: 1 },
+                },
+                {
                     name: 'enabled',
                     type: 'checkbox',
                     label: 'Show tickets section',
@@ -184,6 +191,13 @@ export const Events: CollectionConfig = {
             type: 'group',
             label: 'Speakers Section',
             fields: [
+                {
+                    name: 'order',
+                    type: 'number',
+                    label: 'Order',
+                    defaultValue: 2,
+                    admin: { step: 1 },
+                },
                 {
                     name: 'enabled',
                     type: 'checkbox',
@@ -240,6 +254,13 @@ export const Events: CollectionConfig = {
             type: 'group',
             label: 'Program Section',
             fields: [
+                {
+                    name: 'order',
+                    type: 'number',
+                    label: 'Order',
+                    defaultValue: 3,
+                    admin: { step: 1 },
+                },
                 {
                     name: 'enabled',
                     type: 'checkbox',
@@ -301,6 +322,13 @@ export const Events: CollectionConfig = {
             label: 'Activities Section',
             fields: [
                 {
+                    name: 'order',
+                    type: 'number',
+                    label: 'Order',
+                    defaultValue: 4,
+                    admin: { step: 1 },
+                },
+                {
                     name: 'enabled',
                     type: 'checkbox',
                     label: 'Show activities section',
@@ -315,6 +343,13 @@ export const Events: CollectionConfig = {
             type: 'group',
             label: 'Photos Section (Flickr)',
             fields: [
+                {
+                    name: 'order',
+                    type: 'number',
+                    label: 'Order',
+                    defaultValue: 5,
+                    admin: { step: 1 },
+                },
                 {
                     name: 'enabled',
                     type: 'checkbox',
@@ -350,6 +385,13 @@ export const Events: CollectionConfig = {
             type: 'group',
             label: 'Partners Section',
             fields: [
+                {
+                    name: 'order',
+                    type: 'number',
+                    label: 'Order',
+                    defaultValue: 6,
+                    admin: { step: 1 },
+                },
                 {
                     name: 'enabled',
                     type: 'checkbox',

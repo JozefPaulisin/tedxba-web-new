@@ -11,6 +11,35 @@ import ActivitiesSection from "@/sections/event/ActivitiesSection";
 import PhotosSection from "@/sections/event/PhotosSection";
 import EventPartnersSection from "@/sections/event/EventPartnersSection";
 
+const SECTIONS = ['tickets', 'speakers', 'program', 'activities', 'photos', 'partnersSection'] as const;
+
+function renderSection(key: string, e: Record<string, unknown>, locale: string) {
+    switch (key) {
+        case 'tickets':
+            return e.tickets ? <TicketsSection key={key} tickets={e.tickets as never} locale={locale} /> : null;
+        case 'speakers':
+            return e.speakers ? <SpeakersSection key={key} speakers={e.speakers as never} locale={locale} /> : null;
+        case 'program':
+            return e.program ? <ProgramSection key={key} program={e.program as never} locale={locale} /> : null;
+        case 'activities':
+            return e.activities ? <ActivitiesSection key={key} activities={e.activities as never} locale={locale} /> : null;
+        case 'photos':
+            return e.photos ? <PhotosSection key={key} photos={e.photos as never} locale={locale} /> : null;
+        case 'partnersSection':
+            return e.partnersSection ? <EventPartnersSection key={key} partnersSection={e.partnersSection as never} locale={locale} /> : null;
+        default:
+            return null;
+    }
+}
+
+function getSortedSections(e: Record<string, unknown>) {
+    return [...SECTIONS].sort((a, b) => {
+        const orderA = (e[a] as Record<string, unknown>)?.order as number ?? 999;
+        const orderB = (e[b] as Record<string, unknown>)?.order as number ?? 999;
+        return orderA - orderB;
+    });
+}
+
 export default async function Home() {
     const locale = await getLocale();
     const payload = await getPayload({ config });
@@ -23,7 +52,6 @@ export default async function Home() {
     });
 
     const event = result.docs[0];
-
 
     if (!event) {
         return (
@@ -40,12 +68,7 @@ export default async function Home() {
     return (
         <>
             {e.hero && <HeroSection hero={e.hero as never} locale={locale} />}
-            {e.tickets && <TicketsSection tickets={e.tickets as never} locale={locale} />}
-            {e.speakers && <SpeakersSection speakers={e.speakers as never} locale={locale} />}
-            {e.program && <ProgramSection program={e.program as never} locale={locale} />}
-            {e.activities && <ActivitiesSection activities={e.activities as never} locale={locale} />}
-            {e.photos && <PhotosSection photos={e.photos as never} locale={locale} />}
-            {e.partnersSection && <EventPartnersSection partnersSection={e.partnersSection as never} locale={locale} />}
+            {getSortedSections(e).map((key) => renderSection(key, e, locale))}
             <Newsletter />
         </>
     );
