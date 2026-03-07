@@ -1,5 +1,3 @@
-'use client'
-
 import {
     RiAtomFill,
     RiBrushFill,
@@ -9,7 +7,7 @@ import {
     RiSpeakFill
 } from "@remixicon/react";
 import ActivityCard from "@/components/ui/ActivityCard";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 type ActivitiesData = {
     enabled?: boolean | null;
@@ -19,10 +17,10 @@ type Props = {
     activities: ActivitiesData;
 };
 
-const ActivitiesSection = ({ activities }: Props) => {
-    const t = useTranslations('ActivitiesSection');
-
+const ActivitiesSection = async ({ activities }: Props) => {
     if (!activities.enabled) return null;
+
+    const t = await getTranslations('ActivitiesSection');
 
     const data = [
         { title: t('livePerformances.title'), description: t('livePerformances.description'), icon: RiSpeakFill },

@@ -3,7 +3,6 @@ import { getPayload } from 'payload'
 import config from '@payload-config'
 import { RichText } from '@payloadcms/richtext-lexical/react'
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import CtaSection from '@/sections/CtaSection'
 
 type Props = {
@@ -11,20 +10,20 @@ type Props = {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const { slug } = await params
-    const payload = await getPayload({ config })
+    const { slug } = await params;
+    const payload = await getPayload({ config });
     const result = await payload.find({
         collection: 'articles',
         where: { slug: { equals: slug } },
         limit: 1,
         depth: 0,
-    })
-    const article = result.docs[0]
-    if (!article) return {}
+    });
+    const article = result.docs[0];
+    if (!article) return {};
     return {
         title: article.title as string,
         description: article.description as string,
-    }
+    };
 }
 
 export default async function ArticlePage({ params }: Props) {

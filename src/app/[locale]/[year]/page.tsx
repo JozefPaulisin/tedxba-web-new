@@ -2,8 +2,35 @@ import { notFound } from "next/navigation";
 import { getPayload } from "payload";
 import config from "@payload-config";
 import { getLocale } from "next-intl/server";
+import type { Metadata } from "next";
 import Newsletter from "@/sections/newsletter";
 import BuyTicketsCta from "@/sections/buyTicketsCta";
+
+type Props = { params: Promise<{ locale: string; year: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { locale, year } = await params;
+
+    const payload = await getPayload({ config });
+    const result = await payload.find({
+        collection: 'events',
+        where: { year: { equals: parseInt(year) } },
+        depth: 1,
+        limit: 1,
+    });
+    const event = result.docs[0] as Record<string, unknown> | undefined;
+    if (!event) return {};
+
+    const hero = event.hero as Record<string, unknown> | undefined;
+    const isSk = locale === 'sk';
+    const heroTitle = hero?.[isSk ? 'titleSk' : 'titleEn'] as string | undefined;
+    const heroSubtitle = hero?.[isSk ? 'subtitleSk' : 'subtitleEn'] as string | undefined;
+
+    return {
+        title: heroTitle || `TEDxBratislava ${year}`,
+        description: heroSubtitle || `TEDxBratislava ${year}`,
+    };
+}
 
 import HeroSection from "@/sections/event/HeroSection";
 import TicketsSection from "@/sections/event/TicketsSection";
@@ -42,9 +69,6 @@ function getSortedSections(e: Record<string, unknown>) {
     });
 }
 
-type Props = {
-    params: Promise<{ locale: string; year: string }>;
-};
 
 export async function generateStaticParams() {
     try {

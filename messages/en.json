@@ -7,6 +7,30 @@
     "description": "TEDxBratislava – an independently organised TED event bringing ideas worth spreading.",
     "keywords": ["TEDxBratislava", "TED", "TEDx", "Bratislava", "conference", "ideas worth spreading", "Slovakia"]
   },
+  "HomeMetadata": {
+    "title": "TEDxBratislava",
+    "description": "An independently organised TED event in Bratislava. Discover ideas worth spreading, exceptional speakers and inspiring stories."
+  },
+  "BlogMetadata": {
+    "title": "Blog",
+    "description": "Articles, interviews and ideas from the TEDxBratislava community."
+  },
+  "TeamMetadata": {
+    "title": "Team",
+    "description": "Meet the people behind TEDxBratislava – the organising team that creates an exceptional experience every year."
+  },
+  "SupportMetadata": {
+    "title": "Support us",
+    "description": "Become a partner of TEDxBratislava or join as a volunteer. Help us bring ideas worth spreading."
+  },
+  "PrivacyMetadata": {
+    "title": "Privacy policy",
+    "description": "TEDxBratislava privacy policy."
+  },
+  "TermsMetadata": {
+    "title": "Terms and conditions",
+    "description": "TEDxBratislava terms and conditions."
+  },
   "Header": {
     "catalog": "Catalog",
     "blog": "Blog",

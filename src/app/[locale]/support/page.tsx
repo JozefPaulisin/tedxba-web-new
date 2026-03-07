@@ -3,10 +3,24 @@ import Button from "@/components/Button";
 import HeroHeaderActivator from "@/components/HeroHeaderActivator";
 import PartnerCard from "@/components/ui/PartnerCard";
 import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
+
+type Props = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { locale } = await params;
+    const t = await getTranslations({ locale, namespace: 'SupportMetadata' });
+    return {
+        title: t('title'),
+        description: t('description'),
+    };
+}
+
 import { getLocale } from "next-intl/server";
 import { getPayload } from "payload";
 import config from "@payload-config";
-import type { Media } from "@/payload-types";
+
+type MediaObj = { url?: string | null };
 
 const Support = async () => {
     const t = await getTranslations('SupportPage');
@@ -123,7 +137,7 @@ const Support = async () => {
                 <section className="xl:w-[1180px] lg:w-[940px] lg:mx-auto w-auto mx-5 items-center gap-5 grid xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-2 grid-cols-1 md:mt-25 mt-15">
                     {partners.map((partner) => {
                         const logoUrl = typeof partner.logo === 'object' && partner.logo !== null
-                            ? (partner.logo as Media).url ?? ''
+                            ? (partner.logo as MediaObj).url ?? ''
                             : '';
                         return (
                             <PartnerCard

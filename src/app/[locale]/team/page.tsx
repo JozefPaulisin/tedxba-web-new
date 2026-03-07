@@ -1,9 +1,20 @@
-import Newsletter from "@/sections/newsletter";
 import OrganizerCard from "@/components/ui/OrganizerCard";
 import { getTranslations } from "next-intl/server";
 import { getPayload } from 'payload';
 import config from '@payload-config';
 import CtaSection from "@/sections/CtaSection";
+import type { Metadata } from "next";
+
+type Props = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { locale } = await params;
+    const t = await getTranslations({ locale, namespace: 'TeamMetadata' });
+    return {
+        title: t('title'),
+        description: t('description'),
+    };
+}
 
 const Team = async () => {
     const t = await getTranslations('TeamPage');

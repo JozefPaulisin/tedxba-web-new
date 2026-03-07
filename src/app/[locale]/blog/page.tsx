@@ -4,8 +4,20 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 import InfiniteScrollArticles from "@/components/ui/InfiniteScrollArticles";
 import { docToItem } from "@/lib/articleUtils";
+import type { Metadata } from "next";
 
 const LIMIT = 9;
+
+type Props = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { locale } = await params;
+    const t = await getTranslations({ locale, namespace: 'BlogMetadata' });
+    return {
+        title: t('title'),
+        description: t('description'),
+    };
+}
 
 const Blog = async () => {
     const t = await getTranslations('BlogPage');

@@ -7,6 +7,30 @@
     "description": "TEDxBratislava – nezávislá konferencia inšpirovaná TED, ktorá prináša myšlienky hodné šírenia.",
     "keywords": ["TEDxBratislava", "TED", "TEDx", "Bratislava", "konferencia", "myšlienky hodné šírenia", "Slovensko"]
   },
+  "HomeMetadata": {
+    "title": "TEDxBratislava",
+    "description": "Nezávislá konferencia inšpirovaná TED v Bratislave. Objavte myšlienky hodné šírenia, výnimočných rečníkov a inšpirujúce príbehy."
+  },
+  "BlogMetadata": {
+    "title": "Blog",
+    "description": "Články, rozhovory a myšlienky z prostredia TEDxBratislava."
+  },
+  "TeamMetadata": {
+    "title": "Tím",
+    "description": "Spoznajte ľudí za TEDxBratislava – organizačný tím, ktorý každý rok tvorí výnimočný zážitok."
+  },
+  "SupportMetadata": {
+    "title": "Podporte nás",
+    "description": "Staňte sa partnerom TEDxBratislava alebo sa pridajte ako dobrovoľník. Pomôžte nám priniesť myšlienky, ktoré menia veci."
+  },
+  "PrivacyMetadata": {
+    "title": "Ochrana osobných údajov",
+    "description": "Zásady ochrany osobných údajov TEDxBratislava."
+  },
+  "TermsMetadata": {
+    "title": "Všeobecné obchodné podmienky",
+    "description": "Všeobecné obchodné podmienky TEDxBratislava."
+  },
   "Header": {
     "catalog": "Katalóg",
     "blog": "Blog",
