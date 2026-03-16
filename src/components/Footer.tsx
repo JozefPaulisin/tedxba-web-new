@@ -103,6 +103,8 @@ const Footer = async () => {
                         <Link
                             key={item.href}
                             href={item.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="text-txt-black-ter dark:text-txt-white-ter hover:text-red transition-all duration-300"
                         >
                             {item.name}

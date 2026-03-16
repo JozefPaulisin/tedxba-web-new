@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import ArticleCard from './ArticleCard'
+import { docToItem } from "@/lib/articleUtils";
 
 export type ArticleItem = {
     title: string
@@ -81,5 +82,3 @@ export default function InfiniteScrollArticles({ initialArticles, initialHasNext
         </>
     )
 }
-
-
