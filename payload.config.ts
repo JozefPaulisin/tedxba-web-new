@@ -3,16 +3,16 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import sharp from 'sharp'
 
-// ✅ + .ts prípony
-import { Media } from './src/collections/Media.js'
-import { TeamMembers } from './src/collections/TeamMembers.js'
-import { Articles } from './src/collections/Articles.js'
-import { Partners } from './src/collections/Partners.js'
-import { Events } from './src/collections/Events.js'
+// ✅ RELATÍVNE CESTY BEZ .ts / .js
+import { Media } from './src/collections/Media'
+import { TeamMembers } from './src/collections/TeamMembers'
+import { Articles } from './src/collections/Articles'
+import { Partners } from './src/collections/Partners'
+import { Events } from './src/collections/Events'
 
-import { SiteSettings } from './src/globals/SiteSettings.js'
-import { SupportSettings } from './src/globals/SupportSettings.js'
-import { BlogSettings } from './src/globals/BlogSettings.js'
+import { SiteSettings } from './src/globals/SiteSettings'
+import { SupportSettings } from './src/globals/SupportSettings'
+import { BlogSettings } from './src/globals/BlogSettings'
 
 export default buildConfig({
   editor: lexicalEditor(),
