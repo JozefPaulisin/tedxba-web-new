@@ -17,7 +17,7 @@ export default buildConfig({
     globals: [SiteSettings, SupportSettings, BlogSettings],
     secret: process.env.PAYLOAD_SECRET || 'fallback-secret-for-dev',
     db: postgresAdapter({
-        pool: pool: {
+        pool: {
                   connectionString: process.env.DATABASE_URL,
                 },
         migrationDir: './migrations',
