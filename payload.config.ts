@@ -3,16 +3,15 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import sharp from 'sharp'
 
-//  fixed imports (without @/)
-import { Media } from './collections/Media'
-import { TeamMembers } from './collections/TeamMembers'
-import { Articles } from './collections/Articles'
-import { Partners } from './collections/Partners'
-import { Events } from './collections/Events'
+import { Media } from './src/collections/Media'
+import { TeamMembers } from './src/collections/TeamMembers'
+import { Articles } from './src/collections/Articles'
+import { Partners } from './src/collections/Partners'
+import { Events } from './src/collections/Events'
 
-import { SiteSettings } from './globals/SiteSettings'
-import { SupportSettings } from './globals/SupportSettings'
-import { BlogSettings } from './globals/BlogSettings'
+import { SiteSettings } from './src/globals/SiteSettings'
+import { SupportSettings } from './src/globals/SupportSettings'
+import { BlogSettings } from './src/globals/BlogSettings'
 
 export default buildConfig({
   editor: lexicalEditor(),
