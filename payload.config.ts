@@ -4,15 +4,15 @@ import { postgresAdapter } from '@payloadcms/db-postgres'
 import sharp from 'sharp'
 
 // ✅ + .ts prípony
-import { Media } from './src/collections/Media.ts'
-import { TeamMembers } from './src/collections/TeamMembers.ts'
-import { Articles } from './src/collections/Articles.ts'
-import { Partners } from './src/collections/Partners.ts'
-import { Events } from './src/collections/Events.ts'
+import { Media } from './src/collections/Media.js'
+import { TeamMembers } from './src/collections/TeamMembers.js'
+import { Articles } from './src/collections/Articles.js'
+import { Partners } from './src/collections/Partners.js'
+import { Events } from './src/collections/Events.js'
 
-import { SiteSettings } from './src/globals/SiteSettings.ts'
-import { SupportSettings } from './src/globals/SupportSettings.ts'
-import { BlogSettings } from './src/globals/BlogSettings.ts'
+import { SiteSettings } from './src/globals/SiteSettings.js'
+import { SupportSettings } from './src/globals/SupportSettings.js'
+import { BlogSettings } from './src/globals/BlogSettings.js'
 
 export default buildConfig({
   editor: lexicalEditor(),
