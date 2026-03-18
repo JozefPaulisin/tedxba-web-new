@@ -17,13 +17,9 @@ export default buildConfig({
     globals: [SiteSettings, SupportSettings, BlogSettings],
     secret: process.env.PAYLOAD_SECRET || 'fallback-secret-for-dev',
     db: postgresAdapter({
-        pool: {
-            host: 'localhost',
-            port: 5432,
-            database: 'tedx-ba',
-            user: 'postgres',
-            password: 'postgres',
-        },
+        pool: pool: {
+                  connectionString: process.env.DATABASE_URL,
+                },
         migrationDir: './migrations',
         push: true,
     }),
